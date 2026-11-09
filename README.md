@@ -132,19 +132,17 @@ the `MDS_DATA_ROOT` environment variable) at the directory holding them.
 
 ## Things to know before running anything
 
-- **Only the Python side still reads absolute paths.** Anything other than the three
-  `DATA_ROOT` datasets is read by an absolute `/data1/...` path from inside a notebook cell
-  and will need rewriting to run elsewhere. The R scripts no longer have this problem --
-  all 61 of their read calls point into `R_scripts/data/`.
-- **Python feeds R, but you do not have to rerun it.** For a panel listed under both
+- **Python notebooks read absolute paths to data.** Anything other than the three
+  `DATA_ROOT` datasets is read by an absolute path from inside a notebook cell
+  and will need rewriting to run elsewhere. R scripts read data from files in `R_scripts/data/`.
+- **Several Python scripts generate data tables for R visualization.** For a panel listed under both
   languages in table, the R block reads the output of the python notebook which is included
   in `R_scripts/data/`, so the R script reproduces the panel on its own. Rerun
   the notebook section to regenerate the table from the raw data.
-- **Several R blocks keep superseded commented-out variants** of the same plot, and
+- **Several R blocks have commented-out variants** of the same plot, and
   commented-out `read.delim` lines for the other inputs the same block was run on (for
   example mutant vs control megakaryocytes in `Figure_05.R`, and the myeloid/erythroid
-  variants in `ED_Figure_11.R`). Uncomment the input you want; the plotting code below it
-  is shared, and all four alternative inputs ship in `R_scripts/data/` too.
+  variants in `ED_Figure_11.R`). 
 
 ## License
 
