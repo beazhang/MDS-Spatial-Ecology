@@ -1,32 +1,30 @@
-# MDS bone marrow Xenium spatial transcriptomics -- figure source code
+# MDS bone marrow Xenium spatial transcriptomics and scRNA-seq -- figure source code
 
-Code behind the figures of the MDS bone marrow Xenium spatial transcriptomics study:
+Code behind the figures of "Ecologic determinants of disease and immunity in myelodysplastic syndromes":
 Figures 1-5 and Extended Data Figures 1-12.
 
 The repository is organised **by published figure**. Each figure has at most one Python
-notebook and at most one R script, both named after the figure, and every panel inside
-them carries its own `Figure <n><panel>` heading.
+notebook and at most one R script, both named after the figure in the manuscript.
 
 ## Repository structure
 
 ```
 notebooks/                   Python: one notebook per figure
-  requirements.py            standardised imports, dataset paths, data_dir / media_dir
-  Figure_01 .. 05.ipynb      main figures
+  requirements.py            Standardised imports, dataset paths, data_dir
+  Figure_01 .. 05.ipynb      Main figures
   ED_Figure_01 .. 12.ipynb   Extended Data figures
   DUNE_script.ipynb          DUNE -- niche enrichment method
   SAND.ipynb                 SAND -- spatial cluster detection method
 
 R_scripts/                   R: one script per figure
-  _setup.R                   shared library() calls
-  Figure_01 .. 05.R          main figures
+  _setup.R                   Shared library() calls
+  Figure_01 .. 05.R          Main figures
   ED_Figure_01 .. 12.R       Extended Data figures
-  data/                      the input table for each R panel, named per panel
+  data/                      Input data table for each R panel, named per panel
     Fig1a.csv ... EDFig12i.csv
 
 src/utils/                   helpers shared across notebooks
   pl/plot_ternary.py         ternary density plots
-  pp/segmentation.py         segmentation-mask -> polygon helpers
   tl/deg.py                  PyDESeq2 pseudobulk DE, paired or unpaired
   tl/score_genes.py          gene signature scoring, z-scored onto .obs
   tl/runSAND_transcript.py   SAND adapted to transcript coordinates
@@ -35,17 +33,6 @@ pyproject.toml               Python dependencies
 data/                        not distributed -- see Data below
 media/                       figure output written by the notebooks (gitignored)
 ```
-
-## How the Python and R code divide
-
-Several panels appear in **both** a notebook and an R script. The division is consistent:
-Python computes the underlying values -- differential expression, gene signature scores,
-neighbourhood enrichment scores, per-sample mean expression -- and R renders the published
-panel from the table Python wrote. Volcano plots, alluvials, and most of the per-sample
-boxplots are therefore R; UMAPs, dotplots, heatmaps, and the ternary plots are Python.
-
-Where a figure's heading says *"see DUNE_script.ipynb"* or *"see SAND.ipynb"*, the panel
-comes from one of the two method notebooks rather than from that figure's own notebook.
 
 ## Contents
 
@@ -79,38 +66,20 @@ comes from one of the two method notebooks rather than from that figure's own no
 "(DE)" and "(score)" mark notebook sections that compute the values for a panel plotted in
 R rather than drawing the panel themselves.
 
-Panels not listed above are not produced by code in this repository. They are spatial
-image renders exported from Xenium Explorer, hand-drawn schematics and summary models,
-wet-lab experiments (flow cytometry, transwell assays, gels, westerns, Sanger traces),
-immunofluorescence quantification, probe-threshold FDR simulations, and splicing and
-protein-structure analyses.
 
 ### Method notebooks
 
 | Notebook | Method |
 |---|---|
-| [DUNE_script.ipynb](notebooks/DUNE_script.ipynb) | **DUNE** (Discovery by Unsupervised Niche Enrichment) -- niche enrichment scores and niche entropy, Leiden clustering of niches, cell-type composition per niche, and differentially enriched niches. Produces Figures 2b-e, ED 3f and ED 4a. |
-| [SAND.ipynb](notebooks/SAND.ipynb) | **SAND** (Spatial Adjacency Network Detection) -- identifies local structures ("clusters") in spatial data from a radius graph plus a disjoint-set join. Used for immune aggregate identification in Figure 3. The transcript-level adaptation used for mutant/isoform transcript clusters is `src/utils/tl/runSAND_transcript.py`. |
+| [DUNE_script.ipynb](notebooks/DUNE_script.ipynb) | **DUNE** (Discovery by Unsupervised Niche Enrichment) -- Produces Figures 2b-e, ED 3f and ED 4a. |
+| [SAND.ipynb](notebooks/SAND.ipynb) | **SAND** (Spatial Adjacency Network Detection) -- demarcates discrete local structures ("clusters") in spatial data. Used for immune aggregate identification in Figure 3. The transcript-level adaptation used for cytokine transcript clusters is `src/utils/tl/runSAND_transcript.py`. |
 
-`SAND.ipynb` demonstrates the method on a small toy AnnData rather than on a primary
-dataset. That toy object is not distributed here; point its `read_h5ad` call at any
-AnnData with spatial coordinates in `.obs`.
 
 ## Installation
 
 ```bash
 pip install .
 ```
-
-Versions are deliberately unpinned in `pyproject.toml`: the analysis ran over an extended
-period and no single resolved environment reproduces every notebook. Pin to your own
-working set.
-
-The R scripts need `RColorBrewer`, `ggplot2`, `reshape2`, `ggpubr` and `ggalluvial`
-(loaded by `_setup.R`), plus `ggbreak`, `ggrepel`, `ggfortify`, `tidyr`, `dplyr` and
-`tibble`, which individual scripts load where they are used. With those installed, all
-16 figure scripts run to completion on R 4.3 and draw every panel from the tables in
-`R_scripts/data/`.
 
 ## Quickstart
 
@@ -122,15 +91,9 @@ Python:
 3. Run the import cell and the dataset-load cell at the top, then the panel you want.
    Within a notebook the panels are independent of each other.
 
-Every figure notebook has the same shape: cell 0 is `from requirements import *` plus any
-`src/utils` helpers, cell 1 the figure title, cell 2 the dataset load, and from cell 3 on
-one `## Figure 3c. <title>` heading per panel followed by that panel's code. A heading
-reading *"DEG analysis for volcano plot: ..."* marks code that computes values for a panel
-plotted in R; one reading *"see DUNE_script.ipynb"* is a pointer to a method notebook.
-
 `notebooks/requirements.py` holds the consolidated imports, defines `DATA_ROOT` and the
-three dataset constants, creates `media_dir` (`../media`), and puts `../src` on
-`sys.path`, so notebooks import helpers as `from utils.tl.deg import runDEseq`.
+three dataset constants, and puts `../src` on
+`sys.path`, so notebooks can import helpers as `from utils.tl.deg import runDEseq`.
 
 R -- no setup needed, the input tables ship with the repository:
 
@@ -142,25 +105,9 @@ source("Figure_03.R")
 
 ## Data
 
-**The R panels are self-contained.** Every table the R scripts read lives in
-`R_scripts/data/`, one file per panel, named for the panel it feeds -- `Fig3b.csv`,
-`EDFig11l.csv`, and so on. The scripts reference them by relative path, so
-`setwd("R_scripts")` is the only requirement. Four of the larger tables are gzipped, which
-`read.delim()` handles transparently.
-
-Three of those tables were reduced to the columns their figures actually use; the other 53
-are verbatim copies of the pipeline output. The dropped columns are never read by the
-plotting code, so the rendered panels are unchanged -- verified by rendering each affected
-panel before and after and comparing the images pixel for pixel.
-
-| File | Kept | Dropped |
-|---|---|---|
-| `EDFig3c.txt.gz` | `diagnosis`, `study_id`, `ct_general`, `ct_refined`, `tls`, `in_tls` | cell barcode, `sample_name` -- 462 MiB down to 18 MiB |
-| `Fig1a.csv` | `manuscript_id`, `Diagnosis`, `IPSS-M`, `Age`, `IMPACT`, `SF3B1` | `Study_ID`, `ISSUES`, `slide_id`, `region`, `Sex` |
-| `EDFig1b.csv` | `Type`, `IPSS-M`, `Timepoint`, `Patient`, `TP53 Mutant`, `SF Mutant`, `Age`, `Treatment` | `Study_ID`, `YrsSinceTp`, `Blastpct`, `Diagnosis WHO`, the three `IPSS-R`/`IPSS-M` risk-score columns, `Disease Status at BM`, `Status` |
-
-`Age` in `Fig1a.csv` is read only to derive the `Under 40` / `40-60` / `Over 60` category
-that the panel plots; the exact value never appears in a figure.
+**The R panels are self-contained.** Every data table required to generate R figures is located in
+`R_scripts/data/`, which includes one file per panel, named for the panel it feeds -- `Fig3b.csv`,
+`EDFig11l.csv`, etc. 
 
 **The Python notebooks are not.** They read Xenium and CITE-seq AnnData objects, plus
 intermediate `.csv`/`.txt` tables, that are too large to distribute here. Three primary
@@ -168,9 +115,9 @@ datasets are named in `notebooks/requirements.py` and resolved under `DATA_ROOT`
 
 | Constant | Dataset |
 |---|---|
-| `XEN_V1` | Xenium v1, resegmented, all cell types |
+| `XEN_V1` | Xenium v1, resegmented (Core MDS Spatial Cohort) |
 | `CITE` | CITE-seq: scRNA + scProtein + scTCR |
-| `XEN_V2` | Xenium v2, resegmented (TCR and mutation probe panels) |
+| `XEN_V2` | Xenium v2, resegmented (MDS Spatial Cohort with TCR and mutation probe panels) |
 
 ### Data availability
 
@@ -185,23 +132,14 @@ the `MDS_DATA_ROOT` environment variable) at the directory holding them.
 
 ## Things to know before running anything
 
-- **The notebooks are not runnable end to end as a batch.** Each notebook loads only the
-  dataset(s) its own panels need, but individual cells still depend on intermediate
-  `.csv`/`.txt` tables written elsewhere in the pipeline.
 - **Only the Python side still reads absolute paths.** Anything other than the three
   `DATA_ROOT` datasets is read by an absolute `/data1/...` path from inside a notebook cell
   and will need rewriting to run elsewhere. The R scripts no longer have this problem --
   all 61 of their read calls point into `R_scripts/data/`.
 - **Python feeds R, but you do not have to rerun it.** For a panel listed under both
-  languages, the table the R block reads is the output of the notebook section -- and that
-  table ships in `R_scripts/data/`, so the R script reproduces the panel on its own. Rerun
-  the notebook section only if you want to regenerate the table from the raw data.
-- **Some helpers exist in several diverging versions and are deliberately inline.**
-  `makeneighborgraph` and `joinsets` differ between `SAND.ipynb` (cell-level) and
-  `src/utils/tl/runSAND_transcript.py` (transcript-level), and `p_to_star` is defined in
-  the cells that use it. Only helpers with a single unambiguous definition were hoisted
-  into `src/utils/`. Do not deduplicate the inline ones without checking which version
-  each caller needs.
+  languages in table, the R block reads the output of the python notebook which is included
+  in `R_scripts/data/`, so the R script reproduces the panel on its own. Rerun
+  the notebook section to regenerate the table from the raw data.
 - **Several R blocks keep superseded commented-out variants** of the same plot, and
   commented-out `read.delim` lines for the other inputs the same block was run on (for
   example mutant vs control megakaryocytes in `Figure_05.R`, and the myeloid/erythroid

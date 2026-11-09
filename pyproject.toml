@@ -26,8 +26,6 @@ dependencies = [
     "seaborn",
     "cmasher",
     "python-ternary",
-    "geopandas",
-    "shapely",
     "decoupler",
     "pydeseq2",
 ]
