@@ -1,0 +1,45 @@
+# Manuscript PDFs -- 181 MB and 193 MB, both over GitHub's 100 MB per-file hard limit.
+# They are the reference for the figure panels, not code. Share them out of band.
+MDS_MAIN.pdf
+MDS_SUP.pdf
+
+# Pre-reorganisation originals at the repository root, kept on disk for reference only.
+# The two notebooks are 39 MB and 103 MB, almost entirely embedded output images, and the
+# 103 MB one is over GitHub's per-file hard limit. Their content now lives, split by
+# figure, in notebooks/ and R_scripts/.
+/MDS_manuscript_figures.ipynb
+/MDS_REVIEW_COMMENTS.ipynb
+/mds_xenium_viz.R
+
+# Earlier, partial organising passes kept on disk for reference. Superseded by
+# notebooks/ and R_scripts/, and predating the figure renumbering.
+organized_figures/
+
+# Unreferenced intermediate table left at the repository root.
+/Megakaryocyte_neighbors15micron.txt
+
+# Figure output written by the notebooks (requirements.py defines media_dir here).
+media/
+
+# Local copies of the large primary datasets (Xenium / CITE-seq AnnData objects). Not
+# distributed with the repository -- see the Data section of README.md. Anchored to the
+# repository root so that the tracked R input tables in R_scripts/data/ are NOT ignored.
+/data/
+
+# Jupyter / Python
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+
+# Python build artefacts (pip install . writes the egg-info into src/)
+*.egg-info/
+build/
+dist/
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+
+# OS
+.DS_Store

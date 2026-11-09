@@ -1,0 +1,62 @@
+manuscript_id,Diagnosis,IPSS-M,Age,IMPACT,SF3B1
+MDS-1,MDS-LB,High,61,Yes,No
+MDS-2,MDS-LB,High,75,Yes,No
+MDS-3,MDS-LB,Low,71,Yes,No
+MDS-4,MDS-LB,Moderate High,61,Yes,No
+MDS-5,MDS-LB,Moderate High,77,Yes,No
+MDS-6,MDS-LB,Moderate Low,73,Yes,No
+MDS-7,MDS-LB,Very Low,61,Yes,Yes
+MDS-8,MDS-LB,Very Low,74,Yes,Yes
+MDS-9,MDS-LB,Moderate Low,83,Yes,Yes
+MDS-10,MDS-LB,Very Low,70,Yes,Yes
+MDS-11,MDS-LB,Low,78,Yes,Yes
+MDS-12,MDS-LB,Moderate Low,62,Yes,No
+MDS-13,MDS-LB,Low,60,Yes,No
+MDS-14,MDS-LB,Low,73,Not performed,No
+MDS-15,MDS-LB,Moderate High,77,Yes,No
+MDS-16,MDS-LB,Very High,66,Yes,No
+MDS-17,MDS-LB,Low,68,Yes,No
+MDS-18,MDS-LB,Low,65,Yes,No
+MDS-19,MDS-LB,Low,78,REACT,Yes
+MDS-20,MDS-LB,Moderate Low,44,Yes,No
+MDS-21,MDS-LB,Low,57,Yes,No
+MDS-22,MDS-LB,Moderate High,58,Yes,No
+MDS-23,MDS-LB,Low,80,Yes,Yes
+MDS-24,MDS-LB,Moderate Low,74,Yes,No
+MDS-25,MDS-IB1,Very High,25,Yes,No
+MDS-26,MDS-IB1,High,78,Yes,No
+MDS-27,MDS-IB1,Very High,63,Yes,No
+MDS-28,MDS-IB1,Very High,39,Yes,No
+MDS-29,MDS-IB1,Very High,79,Yes,No
+MDS-30,MDS-IB1,Very High,62,Yes,No
+MDS-31,MDS-IB1,Very High,65,Yes,No
+MDS-32,MDS-IB1,High,68,Yes,No
+MDS-33,MDS-IB1,Very High,79,Yes,No
+MDS-34,MDS-IB1,High,72,Yes,No
+MDS-35,MDS-IB1,Very High,69,Yes,No
+MDS-36,MDS-IB1,High,68,Yes,Yes
+MDS-37,MDS-IB2,High,76,Yes,No
+MDS-38,MDS-IB2,Very High,77,Yes,No
+MDS-39,MDS-IB2,High,78,Yes,No
+MDS-40,MDS-IB2,Very High,73,REACT,No
+MDS-41,MDS-IB2,Moderate High,61,Yes,No
+C-1,Control-Donor,Na,33,Not performed,No
+C-2,Control-Donor,Na,40,Not performed,No
+C-3,Control-Donor,Na,32,Not performed,No
+C-4,Control-Donor,Na,22,Not performed,No
+C-5,Control-Donor,Na,27,Not performed,No
+C-6,Control-Lymph,Na,80,Yes,No
+C-7,Control-Lymph,Na,66,REACT,No
+C-8,Control-Lymph,Na,70,Yes,No
+C-9,Control-Lymph,Na,63,Not performed,No
+C-10,Control-Lymph,Na,49,Not performed,No
+C-11,Control-Lymph,Na,66,Yes,No
+C-12,Control-Lymph,Na,45,Yes,No
+C-13,Control-Lymph,Na,57,Yes,No
+C-14,Control-Lymph,Na,78,Not performed,No
+C-15,Control-Lymph,Na,44,Yes,No
+pA-1,Control-TP,Na,69,Yes,No
+pA-2,Control-TP,Na,63,Yes,No
+pA-3,Control-TP,Na,71,Yes,No
+pA-4,Control-TP,Na,70,Yes,No
+pA-5,Control-TP,Na,71,Yes,No

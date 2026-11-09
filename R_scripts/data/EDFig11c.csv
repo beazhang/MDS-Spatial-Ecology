@@ -1,0 +1,18 @@
+celltype,DNMT3A,IDH1_SRSF2_CUX1,SF3B1,U2AF1,WT
+Adipocyte,0,0,3,0,0
+B Cell,1,0,36,2,3
+Early Myeloid,5,1,893,7,6
+Endothelial,1,0,30,3,1
+Erythroid,5,0,1296,38,5
+HSPC,0,0,51,0,0
+Late/Mature Myeloid,11,0,5021,8,16
+Macrophage,0,0,107,6,0
+Mast,0,0,21,0,0
+Megakaryocyte,0,0,238,2,5
+Mesenchymal/Stromal,4,1,334,6,3
+NK,0,0,24,1,0
+Osteoblast,0,0,2,0,0
+Plasma Cell,1,0,39,2,4
+T Cell,0,0,54,3,2
+VSMC,0,0,1,0,0
+pDC,0,0,21,0,0

@@ -1,0 +1,59 @@
+Type,IPSS-M,Timepoint,Patient,TP53 Mutant,SF Mutant,Age,Treatment
+MDS,High,T1,ND120,N,Y,Over 60,Untreated
+MDS,Low,T1,ND32,N,Y,Over 60,Untreated
+MDS,Low,T1,ND54,N,Y,Over 60,Untreated
+MDS,Very High,T1,ND72,N,Y,Over 60,Untreated
+MDS,Very Low,T1,ND83,N,Y,Over 60,Untreated
+MDS,Very High,T1,EDTA_006,N,N,Under 40,Untreated
+MDS,Moderate High,T1,ND44,N,Y,Over 60,Untreated
+MDS,Moderate High,T2,ND44,N,Y,Over 60,Untreated
+Remission,NA,T5,ND44,N,N,Over 60,Post Allo-HCT
+MDS,High,T1,EDTA_005,N,N,Over 60,Untreated
+MDS,Low,T2,ND46,N,N,Over 60,Untreated
+MDS-Treated,Low,T4,ND46,N,N,Over 60,Azacitidine
+Remission,NA,T7,ND46,N,N,Over 60,Post Allo-HCT
+MDS,Moderate Low,T1,ND41,N,N,Over 60,Untreated
+Remission,Very Low,T2,ND41,N,N,Over 60,Post Allo-HCT
+Remission,Very Low,T6,ND41,N,N,Over 60,Post Allo-HCT
+MDS,Very High,T1,ND126,Y,N,Over 60,Untreated
+MDS,Moderate High,T1,ND92,N,N,Over 60,Untreated
+Remission,NA,T3,ND92,N,N,Over 60,Post Allo-HCT
+MDS,Moderate Low,T1,ND143,N,N,Over 60,Untreated
+MDS,Moderate High,T1,MDS_1,Y,N,Over 60,Untreated
+MDS,Low,T1,MDS_2,N,N,Over 60,Untreated
+MDS,NA,T3,MDS_2,N,N,Over 60,Untreated
+Remission,NA,T7,MDS_2,N,N,Over 60,Post Allo-HCT
+MDS,Moderate Low,T1,MDS_28,N,N,Over 60,Untreated
+MDS-Treated,Moderate High,T2,MDS_28,N,N,Over 60,Azacitidine
+Remission,NA,T8,MDS_28,N,N,Over 60,Post Allo-HCT
+MDS,High,T1,MDS_13,N,N,Over 60,Untreated
+Remission,NA,T2,MDS_13,N,N,Over 60,Post Allo-HCT
+MDS,High,T1,MDS_3,N,N,Over 60,Untreated
+MDS-Treated,Low,T1,MDS_15,N,N,Over 60,Azacitidine
+Remission,NA,T5,MDS_15,N,N,Over 60,Post Allo-HCT
+MDS,Moderate High,T1,MDS_30,Y,N,Over 60,Untreated
+MDS,Low,T1,MDS_9,N,N,Over 60,Untreated
+MDS,High,T1,MDS_27,N,Y,Over 60,Untreated
+MDS,Moderate Low,T1,ND158,N,Y,Over 60,Untreated
+MDS,Low,T1,ND150,N,N,Over 60,Untreated
+MDS,Moderate Low,T1,MDS_12,N,N,Over 60,Untreated
+MDS,Moderate High,T1,MDS_18,N,N,Over 60,Untreated
+MDS,Moderate Low,T1,MDS_19,N,N,Over 60,Untreated
+MDS,Very High,T1,MDS_20,Y,Y,Over 60,Untreated
+MDS,Low,T1,MDS_5,N,N,Over 60,Untreated
+MDS,Low,T1,MDS_10,N,N,Over 60,Untreated
+MDS,Low,T1,MDS_26,N,Y,Over 60,Untreated
+MDS,Moderate High,T1,ND166,N,N,Over 60,Untreated
+MDS-EB2,Moderate Low,T1,MDS_16,N,N,Over 60,Untreated
+MDS-EB2,Low,T1,MDS_29,N,N,Over 60,Untreated
+MDS-EB2,High,T1,MDS_23,N,N,Over 60,Untreated
+Remission,NA,T3,MDS_23,N,N,Over 60,Azacitidine + Venetoclax
+Remission,NA,T5,MDS_23,N,N,Over 60,Post Allo-HCT
+Remission,NA,T1,EDTA_012,N,N,Over 60,Healthy Control
+Control,NA,T1,EDTA_016,N,N,Under 40,Healthy Control
+Remission,NA,T1,EDTA_018,N,N,Over 60,Healthy Control
+Control,NA,T1,HSS_179,N,N,NA,
+Control,NA,T1,HSS_214,N,N,NA,
+Control,NA,T1,HSS_78,N,N,NA,
+Control,NA,T1,HSS_79,N,N,NA,
+Control,NA,T1,HSS_91,N,N,NA,

@@ -1,0 +1,9 @@
+ct_refined,xen,sc
+CD8 Memory,763,1104
+CD4 Memory,74,46
+CD8 TEMRA GZMB+,50,1362
+NK,44,43
+CD4 Naive/Central Memory,39,6
+CD4 Treg,6,0
+CD8 Naive/Central Memory,1,13
+gdT,0,6

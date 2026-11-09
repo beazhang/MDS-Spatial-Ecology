@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=58.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mds-xenium-figures"
+version = "1.0.0"
+description = "Figure source code for the MDS bone marrow Xenium spatial transcriptomics study"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [{ name = "Greenbaum Lab" }]
+
+# Derived from the imports actually used by the notebooks in notebooks/.
+# Versions are unpinned: the analysis was run over an extended period and no single
+# resolved environment reproduces every notebook. Pin to your own working set.
+dependencies = [
+    "anndata",
+    "scanpy",
+    "squidpy",
+    "numpy",
+    "pandas",
+    "scipy",
+    "scikit-learn",
+    "statsmodels",
+    "matplotlib",
+    "seaborn",
+    "cmasher",
+    "python-ternary",
+    "geopandas",
+    "shapely",
+    "decoupler",
+    "pydeseq2",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
